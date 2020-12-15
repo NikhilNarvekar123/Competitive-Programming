@@ -14,7 +14,7 @@ class Graph:
 
     def show_graph(self):
         for vertex in self.vertices:
-            disp = vertex.getName()
+            disp = vertex.get_name()
             disp += " -> " + vertex.display_adjacent_vertices()
             print(disp)
 
@@ -26,13 +26,13 @@ e = Vertex(0, "E")
 f = Vertex(0, "F")
 g = Vertex(0, "G")
 
-a.setAdjacentVertices((b,4), (c,3))
-b.setAdjacentVertices((e,12), (a,4), (f,5))
-c.setAdjacentVertices((a,3), (d,7), (e,10))
-d.setAdjacentVertices((c,7), (e,2))
-e.setAdjacentVertices((c,10), (b,12), (d,2), (g,5))
-f.setAdjacentVertices((b,5), (g,16))
-g.setAdjacentVertices((f,16), (e,5))
+a.set_adjacent_vertices((b,4), (c,3))
+b.set_adjacent_vertices((e,12), (a,4), (f,5))
+c.set_adjacent_vertices((a,3), (d,7), (e,10))
+d.set_adjacent_vertices((c,7), (e,2))
+e.set_adjacent_vertices((c,10), (b,12), (d,2), (g,5))
+f.set_adjacent_vertices((b,5), (g,16))
+g.set_adjacent_vertices((f,16), (e,5))
 
 graph = Graph()
 graph.add_vertex(a,b,c,d,e,f,g)
