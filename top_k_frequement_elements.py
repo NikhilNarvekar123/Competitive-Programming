@@ -1,3 +1,10 @@
+'''
+run-time: 158 ms (faster than 23.62%)
+mem-usage: 19 mb (less than 19.65%)
+
+O(n log n) solution
+'''
+
 from queue import PriorityQueue
 
 class Solution:
