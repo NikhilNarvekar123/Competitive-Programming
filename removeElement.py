@@ -1,3 +1,9 @@
+'''
+run-time: 24 ms, faster than 98.59%
+mem-usage: 14.2 mb, less than 76.54%
+O(n)
+'''
+
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
         
@@ -14,6 +20,21 @@ class Solution:
                 
         return n
         
+        
+        # preserves relative order
+        '''
+        i = len(nums) - 1
+        k = 0
+        
+        while i >= 0:
+            if nums[i] == val:
+                k += 1
+                for j in range(i, len(nums) - 1):
+                    nums[j] = nums[j + 1]
+            i -= 1
+        
+        return len(nums) - k
+        '''
         
         
         '''
