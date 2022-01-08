@@ -1,21 +1,16 @@
 '''
-run-time: 139 ms, faster than 28.82%
-mem-usage: 15.6 mb, less than 48.03%
-Still O(n) with O(1) mem space
+run-time: 151 ms, faster than 21.81%
+mem-usage: 15.6 mb, less than 79.59%
+O(n)
 '''
 
 class Solution:
-    
     def removeDuplicates(self, nums: List[int]) -> int:
         
-        swapIdx = 0
-        prevNum = None
+        i = 0
+        for j in range(1, len(nums)):
+            if nums[j] != nums[i]:
+                nums[i + 1] = nums[j]
+                i += 1
         
-        for i in range(len(nums)):
-            if prevNum != nums[i]:
-                if swapIdx != i:
-                    nums[swapIdx] = nums[i]
-                swapIdx += 1
-            prevNum = nums[i]
-        
-        return swapIdx
+        return i + 1
