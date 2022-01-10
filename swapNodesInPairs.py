@@ -1,29 +1,22 @@
+'''
+O(n/2)
+'''
+
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+
 class Solution:
-    
-    
-    def swapPairs(self, head: ListNode) -> ListNode:
-        
-    
+    def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:
         
         if not head or not head.next:
             return head
         
-        newHead = head.next
+        next = head.next
+        head.next = next.next
+        next.next = head
         
-        nextNode = newHead.next
-        nextNode = self.swapPairs(nextNode)
-        
-        head.next = nextNode
-        
-        newHead.next = head
-        head = newHead
-        
-    
-        
-        return head
-    
+        head.next = self.swapPairs(head.next)
+        return next
