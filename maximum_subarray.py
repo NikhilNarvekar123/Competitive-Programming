@@ -1,21 +1,18 @@
 '''
-run-time: 812 ms (faster than 8%)
-mem-usage: 28.7 mb (less than 12.56%)
-still O(n)
+O(n)
+Kandane's Algo
 '''
 
 class Solution:
-    
     def maxSubArray(self, nums: List[int]) -> int:
         
-        localMax = 0
-        globalMax = None
+        maxSum = -math.inf
+        sumSoFar = 0
         
         for i in range(len(nums)):
-            localMax = max(nums[i], nums[i] + localMax)
-            if globalMax == None:
-                globalMax = localMax
-            else:
-                globalMax = max(localMax, globalMax)
-            
-        return globalMax
+            sumSoFar += nums[i]
+            maxSum = max(sumSoFar, maxSum)
+            if sumSoFar < 0:
+                sumSoFar = 0
+        
+        return maxSum
